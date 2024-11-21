@@ -7,16 +7,16 @@
   <title>Ticket Management System</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'> -->
-  <link rel="stylesheet" href="css/coolicons.css">
   <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="css/css-stars.css">
   <link rel="stylesheet" href="css/bar-rating.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
   <div class="overlay"></div>
   <div class="pageloader">
-    <div class="spinner-grow" role="status">
+    <div class="spinner-grow" role="status"> 
     </div>
   </div>
   <nav class="navbar navbar-expand-lg fixed-top ticket_management d-flex justify-content-between">
@@ -1412,7 +1412,7 @@ Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero e
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success">Create</button>
+          <button type="button" class="btn btn-success"   data-bs-toggle="modal" data-bs-target="#saveCustomerInfo">Create</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
@@ -1568,6 +1568,36 @@ Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero e
    </div>
  </div>
  <!-- Modal Datepicker Ends -->
+  <!-- Modal Save customer info starts -->
+  <div class="modal fade list-view modal-md" id="saveCustomerInfo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="text-center">
+         <button type="button" class="btn btn-reopen"></button>
+          <h5 class="modal-title">Customer info</h5>
+          <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.9008 14.9007L8.0862 8.08613M8.0862 8.08613L1.27155 1.27148M8.0862 8.08613L14.9008 1.27148M8.0862 8.08613L1.27155 14.9008" stroke="#5C5C5C" stroke-width="1.15355" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                          
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            Do you want to save contact info ?
+           <div class="my-4">
+            <img src="images/customer-large.svg" alt="">
+           </div>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal Save customer info Ends -->
   <script src="js/jquery-3.7.1.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/bootstrap-datepicker.min.js"></script>
