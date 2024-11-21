@@ -300,7 +300,7 @@ body {
 .content-main {
 	padding: 0 20px;
 	margin-left: 91px;
-	margin-top: 100px;
+	margin-top: 102px;
 }
 
 .searchbar {
@@ -2235,7 +2235,6 @@ color: #ccc;
 	.navbar-expand-lg.ticket_management {
 		padding: 5px;
 	}
-
 	.navbar-collapse.show {
 		margin-top: 16px;
 		background: #24585F;
@@ -2318,12 +2317,20 @@ color: #ccc;
 
 	.sidebar {
 		margin-left: 6px;
+		height: 92%;
+		overflow: auto;
 	}
 
+	.sidebar .nav-pills .nav-item .nav-link {
+		padding: 18px 25px;
+	}
+	.sidebar .logout {
+    margin-top: 55px;
+	}
 	.content-main {
 		padding: 0 10px;
 		margin-left: 75px;
-		margin-top: 10px;
+		margin-top: 70px;
 	}
 
 	.ticket-tab .nav.nav-tabs .nav-item .nav-link {
@@ -2478,14 +2485,17 @@ color: #ccc;
 	.search-result .ticket-listing p {
 		white-space: break-spaces;
 	}
+	.social-actions {
+		margin-top: 10px;
+	}
 }
 
-@media only screen and (min-width: 768px) and (max-width: 990px) {
+@media only screen and (min-width: 768px) and (max-width: 990px) {		
   .content-main {
-    margin-top: 80px;
+    margin-top: 92px;
   }
   .navbar-expand-lg.ticket_management {
-		padding: 5px;
+		padding: 24px;
 	}
 
 	.navbar-collapse.show {
@@ -2513,6 +2523,15 @@ color: #ccc;
     top: 10px;
     right: 30px;
   }
+	.sidebar {
+    height: 78%;
+    overflow: auto;
+	}
+	.sidebar .logout {
+			text-align: center;
+			margin-top: 70px;
+			margin-bottom: 20px;
+	}
 	.button-new-ticket {
 		width: 160px;
 	}
@@ -2601,8 +2620,11 @@ color: #ccc;
 	.search-result .ticket-listing p {
 		white-space: break-spaces;
 	}
+	.create-article-modal {
+		width: 58%;
+	}
 }
-@media only screen and (min-width: 991px) and (max-width: 1200px) {
+@media only screen and (min-width: 991px) and (max-width: 1179px) {
   .navbar-expand-lg.ticket_management .navbar-nav .nav-link {
     padding: 10px 15px;
   }
@@ -2612,6 +2634,9 @@ color: #ccc;
     padding: 10px;
     margin-left: 10px;
   }
+	.slide-btn.slide-btn-right {
+    left: -35px;
+}
   .sidebar {
     margin-left: 15px;
     width: 76px;
@@ -2651,4 +2676,71 @@ color: #ccc;
   .ticket-tab.tab-icon .nav.nav-tabs .nav-item .nav-link span {
     font-size: 10px;
   }
+	.create-article-modal {
+		width: 58%;
+	}
+}
+@media only screen and (min-width: 1180px) and (max-width: 1200px) {
+  .navbar-expand-lg.ticket_management .navbar-nav .nav-link {
+    padding: 10px 15px;
+  }
+  .tickets-left {
+    width: 27.5%;
+    float: left;
+    padding: 10px;
+    margin-left: 10px;
+  }
+	.slide-btn.slide-btn-right {
+		left: -66px;
+	}
+  .sidebar {
+    margin-left: 15px;
+    width: 76px;
+  }
+  .slide-btn.slide-btn-left {
+    left: 80px;
+    z-index: 999;
+  }
+  .button-new-ticket {
+    width: 150px;
+  }
+  .tickets-right-body .ticket-tab .nav.nav-tabs .nav-item {
+    margin-right: 6px;
+  }
+  .search-result .ticket-listing p {
+    white-space: break-spaces;
+  }
+  .content-main {
+    padding: 0 30px 0 20px;
+  }
+  .tickets-right-body .ticket-tab .nav.nav-tabs .nav-item .nav-link {
+    padding: 0 5px 13px 5px;
+  }
+  .filter-btn-icon-community {
+    width: 116px;
+  }
+  .filter-btn {
+    width: 100px;
+  }
+  .ticket-stats .badge {
+    display: none;
+  }
+  .ticket-tab.tab-icon .nav.nav-tabs .nav-item .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .ticket-tab.tab-icon .nav.nav-tabs .nav-item .nav-link span {
+    font-size: 10px;
+  }
+	.create-article-modal {
+		width: 58%;
+	}
+}
+@media only screen and (min-width: 1024px) and (max-width: 1366px) {
+	.fixed-scroll {
+    height: 100%;
+	}
+	.tickets-right-body {
+    height: 100%;
+}
 }
