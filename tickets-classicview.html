@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ticket Management System</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'> -->
+  <link rel="stylesheet" href="css/coolicons.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="pageloader">
+    <div class="spinner-grow" role="status">
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg fixed-top ticket_management d-flex justify-content-between">
+    <div>
+      <a class="navbar-brand" href="#"><img src="images/logo.svg" alt="logo"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="dashboard.html">DASHBOARD</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="tickets-listview.html">TICKET</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="resolve.html">RESOLVE CENTRE</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="community.html">COMMUNITY </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="customers.html">CUSTOMERS </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="analytics.html">ANALYTICS </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-right-side">
+      <div class="dropdown">
+        <button class="icon-bg dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3.4508 13.4467L4.60471 12.5235L4.6132 12.517C4.85376 12.3246 4.97515 12.2275 5.11059 12.1583C5.2321 12.0962 5.36167 12.051 5.49533 12.0235C5.64599 11.9926 5.80292 11.9926 6.11794 11.9926H12.691C13.5375 11.9926 13.9612 11.9926 14.2849 11.8277C14.5698 11.6825 14.8016 11.4506 14.9468 11.1657C15.1117 10.8421 15.1117 10.4188 15.1117 9.57236V3.81273C15.1117 2.96626 15.1117 2.5424 14.9468 2.21878C14.8016 1.93383 14.5693 1.70233 14.2844 1.55715C13.9604 1.39209 13.537 1.39209 12.6889 1.39209H3.90555C3.05743 1.39209 2.63305 1.39209 2.30911 1.55715C2.02416 1.70233 1.79266 1.93383 1.64748 2.21878C1.48242 2.54272 1.48242 2.9671 1.48242 3.81522V12.5008C1.48242 13.3078 1.48242 13.7112 1.64783 13.9184C1.79169 14.0986 2.00975 14.2034 2.24034 14.2032C2.50549 14.2029 2.82069 13.9508 3.4508 13.4467Z" stroke="white" stroke-width="1.15355" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu arrow-up" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Menu</a>
+          <a class="dropdown-item" href="#">Menu</a>
+          <a class="dropdown-item" href="#">Menu</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="icon-bg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="18.1723" height="18.1723" transform="translate(0.710938 0.363281)" fill="#24585F"/>
+            <path d="M12.0687 13.2353V13.9925C12.0687 15.247 11.0517 16.264 9.7972 16.264C8.54266 16.264 7.52565 15.247 7.52565 13.9925V13.2353M12.0687 13.2353H7.52565M12.0687 13.2353H14.7874C15.077 13.2353 15.2226 13.2353 15.3398 13.1957C15.5639 13.1202 15.7391 12.9443 15.8147 12.7203C15.8544 12.6025 15.8544 12.4565 15.8544 12.1646C15.8544 12.0369 15.8543 11.973 15.8443 11.9121C15.8254 11.797 15.7807 11.6879 15.7127 11.5931C15.6768 11.5431 15.6311 11.4974 15.541 11.4073L15.2461 11.1124C15.1509 11.0172 15.0975 10.8881 15.0975 10.7536V7.93503C15.0975 5.00777 12.7245 2.63476 9.7972 2.63477C6.86994 2.63477 4.49693 5.00778 4.49693 7.93503V10.7536C4.49693 10.8882 4.44335 11.0172 4.34819 11.1124L4.05327 11.4073C3.96293 11.4976 3.91772 11.543 3.88172 11.5932C3.81369 11.6879 3.76863 11.797 3.74974 11.9121C3.73975 11.973 3.73975 12.0369 3.73975 12.1646C3.73975 12.4565 3.73975 12.6025 3.77946 12.7202C3.85503 12.9442 4.03111 13.1202 4.25513 13.1957C4.37242 13.2353 4.51738 13.2353 4.80703 13.2353H7.52565" stroke="white" stroke-width="1.15355" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>  
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <a class="dropdown-item" href="#">Menu</a>
+          <a class="dropdown-item" href="#">Menu</a>
+          <a class="dropdown-item" href="#">Menu</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="user dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="images/user.svg" alt="user">   
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <a class="dropdown-item" href="#">Menu</a>
+          <a class="dropdown-item" href="#">Menu</a>
+          <a class="dropdown-item" href="#">Menu</a>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="sidebar">
+    <div class="d-flex flex-column flex-shrink-0">
+      <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.972689 9.1786C0.972656 9.13613 0.972656 9.09234 0.972656 9.04717V2.73467C0.972656 1.99814 0.972656 1.6296 1.11599 1.34828C1.24208 1.10083 1.44312 0.899792 1.69057 0.773709C1.97189 0.630371 2.34042 0.630371 3.07695 0.630371H10.7046C11.4411 0.630371 11.8092 0.630371 12.0905 0.773709C12.3379 0.899792 12.5393 1.10083 12.6654 1.34828C12.8086 1.62933 12.8086 1.99742 12.8086 2.73251V9.04907C12.8086 9.36799 12.8086 9.61773 12.7969 9.82124M0.972689 9.1786C0.973196 9.82848 0.981448 10.1687 1.11599 10.4328C1.24208 10.6802 1.44312 10.8819 1.69057 11.008C1.97161 11.1512 2.3397 11.1512 3.07479 11.1512H10.7068C11.4419 11.1512 11.8094 11.1512 12.0905 11.008C12.3379 10.8819 12.5393 10.6802 12.6654 10.4328C12.7465 10.2736 12.7816 10.0868 12.7969 9.82124M0.972689 9.1786L4.10785 5.52091L4.10878 5.5199C4.38684 5.19549 4.52611 5.03301 4.69129 4.97445C4.83639 4.92301 4.99481 4.92421 5.13919 4.97766C5.30371 5.03858 5.44076 5.20291 5.71487 5.53183L7.4713 7.63955C7.72503 7.94403 7.85263 8.09715 8.00756 8.15861C8.14422 8.21281 8.29493 8.21892 8.43594 8.17731C8.59645 8.12994 8.73774 7.98867 9.02029 7.70612L9.34713 7.37927C9.63481 7.09159 9.77865 6.94786 9.94146 6.90087C10.0844 6.85961 10.2373 6.86847 10.3749 6.92528C10.5315 6.98995 10.6585 7.14827 10.9127 7.46596L12.7969 9.82124M12.7969 9.82124L12.8086 9.83584M8.86328 4.57568C8.50013 4.57568 8.20573 4.28129 8.20573 3.91813C8.20573 3.55498 8.50013 3.26058 8.86328 3.26058C9.22644 3.26058 9.52083 3.55498 9.52083 3.91813C9.52083 4.28129 9.22644 4.57568 8.86328 4.57568Z" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.972689 9.1786C0.972656 9.13613 0.972656 9.09234 0.972656 9.04717V2.73467C0.972656 1.99814 0.972656 1.6296 1.11599 1.34828C1.24208 1.10083 1.44312 0.899792 1.69057 0.773709C1.97189 0.630371 2.34042 0.630371 3.07695 0.630371H10.7046C11.4411 0.630371 11.8092 0.630371 12.0905 0.773709C12.3379 0.899792 12.5393 1.10083 12.6654 1.34828C12.8086 1.62933 12.8086 1.99742 12.8086 2.73251V9.04907C12.8086 9.36799 12.8086 9.61773 12.7969 9.82124M0.972689 9.1786C0.973196 9.82848 0.981448 10.1687 1.11599 10.4328C1.24208 10.6802 1.44312 10.8819 1.69057 11.008C1.97161 11.1512 2.3397 11.1512 3.07479 11.1512H10.7068C11.4419 11.1512 11.8094 11.1512 12.0905 11.008C12.3379 10.8819 12.5393 10.6802 12.6654 10.4328C12.7465 10.2736 12.7816 10.0868 12.7969 9.82124M0.972689 9.1786L4.10785 5.52091L4.10878 5.5199C4.38684 5.19549 4.52611 5.03301 4.69129 4.97445C4.83639 4.92301 4.99481 4.92421 5.13919 4.97766C5.30371 5.03858 5.44076 5.20291 5.71487 5.53183L7.4713 7.63955C7.72503 7.94403 7.85263 8.09715 8.00756 8.15861C8.14422 8.21281 8.29493 8.21892 8.43594 8.17731C8.59645 8.12994 8.73774 7.98867 9.02029 7.70612L9.34713 7.37927C9.63481 7.09159 9.77865 6.94786 9.94146 6.90087C10.0844 6.85961 10.2373 6.86847 10.3749 6.92528C10.5315 6.98995 10.6585 7.14827 10.9127 7.46596L12.7969 9.82124M12.7969 9.82124L12.8086 9.83584M8.86328 4.57568C8.50013 4.57568 8.20573 4.28129 8.20573 3.91813C8.20573 3.55498 8.50013 3.26058 8.86328 3.26058C9.22644 3.26058 9.52083 3.55498 9.52083 3.91813C9.52083 4.28129 9.22644 4.57568 8.86328 4.57568Z" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.972689 9.1786C0.972656 9.13613 0.972656 9.09234 0.972656 9.04717V2.73467C0.972656 1.99814 0.972656 1.6296 1.11599 1.34828C1.24208 1.10083 1.44312 0.899792 1.69057 0.773709C1.97189 0.630371 2.34042 0.630371 3.07695 0.630371H10.7046C11.4411 0.630371 11.8092 0.630371 12.0905 0.773709C12.3379 0.899792 12.5393 1.10083 12.6654 1.34828C12.8086 1.62933 12.8086 1.99742 12.8086 2.73251V9.04907C12.8086 9.36799 12.8086 9.61773 12.7969 9.82124M0.972689 9.1786C0.973196 9.82848 0.981448 10.1687 1.11599 10.4328C1.24208 10.6802 1.44312 10.8819 1.69057 11.008C1.97161 11.1512 2.3397 11.1512 3.07479 11.1512H10.7068C11.4419 11.1512 11.8094 11.1512 12.0905 11.008C12.3379 10.8819 12.5393 10.6802 12.6654 10.4328C12.7465 10.2736 12.7816 10.0868 12.7969 9.82124M0.972689 9.1786L4.10785 5.52091L4.10878 5.5199C4.38684 5.19549 4.52611 5.03301 4.69129 4.97445C4.83639 4.92301 4.99481 4.92421 5.13919 4.97766C5.30371 5.03858 5.44076 5.20291 5.71487 5.53183L7.4713 7.63955C7.72503 7.94403 7.85263 8.09715 8.00756 8.15861C8.14422 8.21281 8.29493 8.21892 8.43594 8.17731C8.59645 8.12994 8.73774 7.98867 9.02029 7.70612L9.34713 7.37927C9.63481 7.09159 9.77865 6.94786 9.94146 6.90087C10.0844 6.85961 10.2373 6.86847 10.3749 6.92528C10.5315 6.98995 10.6585 7.14827 10.9127 7.46596L12.7969 9.82124M12.7969 9.82124L12.8086 9.83584M8.86328 4.57568C8.50013 4.57568 8.20573 4.28129 8.20573 3.91813C8.20573 3.55498 8.50013 3.26058 8.86328 3.26058C9.22644 3.26058 9.52083 3.55498 9.52083 3.91813C9.52083 4.28129 9.22644 4.57568 8.86328 4.57568Z" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.972689 9.1786C0.972656 9.13613 0.972656 9.09234 0.972656 9.04717V2.73467C0.972656 1.99814 0.972656 1.6296 1.11599 1.34828C1.24208 1.10083 1.44312 0.899792 1.69057 0.773709C1.97189 0.630371 2.34042 0.630371 3.07695 0.630371H10.7046C11.4411 0.630371 11.8092 0.630371 12.0905 0.773709C12.3379 0.899792 12.5393 1.10083 12.6654 1.34828C12.8086 1.62933 12.8086 1.99742 12.8086 2.73251V9.04907C12.8086 9.36799 12.8086 9.61773 12.7969 9.82124M0.972689 9.1786C0.973196 9.82848 0.981448 10.1687 1.11599 10.4328C1.24208 10.6802 1.44312 10.8819 1.69057 11.008C1.97161 11.1512 2.3397 11.1512 3.07479 11.1512H10.7068C11.4419 11.1512 11.8094 11.1512 12.0905 11.008C12.3379 10.8819 12.5393 10.6802 12.6654 10.4328C12.7465 10.2736 12.7816 10.0868 12.7969 9.82124M0.972689 9.1786L4.10785 5.52091L4.10878 5.5199C4.38684 5.19549 4.52611 5.03301 4.69129 4.97445C4.83639 4.92301 4.99481 4.92421 5.13919 4.97766C5.30371 5.03858 5.44076 5.20291 5.71487 5.53183L7.4713 7.63955C7.72503 7.94403 7.85263 8.09715 8.00756 8.15861C8.14422 8.21281 8.29493 8.21892 8.43594 8.17731C8.59645 8.12994 8.73774 7.98867 9.02029 7.70612L9.34713 7.37927C9.63481 7.09159 9.77865 6.94786 9.94146 6.90087C10.0844 6.85961 10.2373 6.86847 10.3749 6.92528C10.5315 6.98995 10.6585 7.14827 10.9127 7.46596L12.7969 9.82124M12.7969 9.82124L12.8086 9.83584M8.86328 4.57568C8.50013 4.57568 8.20573 4.28129 8.20573 3.91813C8.20573 3.55498 8.50013 3.26058 8.86328 3.26058C9.22644 3.26058 9.52083 3.55498 9.52083 3.91813C9.52083 4.28129 9.22644 4.57568 8.86328 4.57568Z" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.972689 9.1786C0.972656 9.13613 0.972656 9.09234 0.972656 9.04717V2.73467C0.972656 1.99814 0.972656 1.6296 1.11599 1.34828C1.24208 1.10083 1.44312 0.899792 1.69057 0.773709C1.97189 0.630371 2.34042 0.630371 3.07695 0.630371H10.7046C11.4411 0.630371 11.8092 0.630371 12.0905 0.773709C12.3379 0.899792 12.5393 1.10083 12.6654 1.34828C12.8086 1.62933 12.8086 1.99742 12.8086 2.73251V9.04907C12.8086 9.36799 12.8086 9.61773 12.7969 9.82124M0.972689 9.1786C0.973196 9.82848 0.981448 10.1687 1.11599 10.4328C1.24208 10.6802 1.44312 10.8819 1.69057 11.008C1.97161 11.1512 2.3397 11.1512 3.07479 11.1512H10.7068C11.4419 11.1512 11.8094 11.1512 12.0905 11.008C12.3379 10.8819 12.5393 10.6802 12.6654 10.4328C12.7465 10.2736 12.7816 10.0868 12.7969 9.82124M0.972689 9.1786L4.10785 5.52091L4.10878 5.5199C4.38684 5.19549 4.52611 5.03301 4.69129 4.97445C4.83639 4.92301 4.99481 4.92421 5.13919 4.97766C5.30371 5.03858 5.44076 5.20291 5.71487 5.53183L7.4713 7.63955C7.72503 7.94403 7.85263 8.09715 8.00756 8.15861C8.14422 8.21281 8.29493 8.21892 8.43594 8.17731C8.59645 8.12994 8.73774 7.98867 9.02029 7.70612L9.34713 7.37927C9.63481 7.09159 9.77865 6.94786 9.94146 6.90087C10.0844 6.85961 10.2373 6.86847 10.3749 6.92528C10.5315 6.98995 10.6585 7.14827 10.9127 7.46596L12.7969 9.82124M12.7969 9.82124L12.8086 9.83584M8.86328 4.57568C8.50013 4.57568 8.20573 4.28129 8.20573 3.91813C8.20573 3.55498 8.50013 3.26058 8.86328 3.26058C9.22644 3.26058 9.52083 3.55498 9.52083 3.91813C9.52083 4.28129 9.22644 4.57568 8.86328 4.57568Z" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.972689 9.1786C0.972656 9.13613 0.972656 9.09234 0.972656 9.04717V2.73467C0.972656 1.99814 0.972656 1.6296 1.11599 1.34828C1.24208 1.10083 1.44312 0.899792 1.69057 0.773709C1.97189 0.630371 2.34042 0.630371 3.07695 0.630371H10.7046C11.4411 0.630371 11.8092 0.630371 12.0905 0.773709C12.3379 0.899792 12.5393 1.10083 12.6654 1.34828C12.8086 1.62933 12.8086 1.99742 12.8086 2.73251V9.04907C12.8086 9.36799 12.8086 9.61773 12.7969 9.82124M0.972689 9.1786C0.973196 9.82848 0.981448 10.1687 1.11599 10.4328C1.24208 10.6802 1.44312 10.8819 1.69057 11.008C1.97161 11.1512 2.3397 11.1512 3.07479 11.1512H10.7068C11.4419 11.1512 11.8094 11.1512 12.0905 11.008C12.3379 10.8819 12.5393 10.6802 12.6654 10.4328C12.7465 10.2736 12.7816 10.0868 12.7969 9.82124M0.972689 9.1786L4.10785 5.52091L4.10878 5.5199C4.38684 5.19549 4.52611 5.03301 4.69129 4.97445C4.83639 4.92301 4.99481 4.92421 5.13919 4.97766C5.30371 5.03858 5.44076 5.20291 5.71487 5.53183L7.4713 7.63955C7.72503 7.94403 7.85263 8.09715 8.00756 8.15861C8.14422 8.21281 8.29493 8.21892 8.43594 8.17731C8.59645 8.12994 8.73774 7.98867 9.02029 7.70612L9.34713 7.37927C9.63481 7.09159 9.77865 6.94786 9.94146 6.90087C10.0844 6.85961 10.2373 6.86847 10.3749 6.92528C10.5315 6.98995 10.6585 7.14827 10.9127 7.46596L12.7969 9.82124M12.7969 9.82124L12.8086 9.83584M8.86328 4.57568C8.50013 4.57568 8.20573 4.28129 8.20573 3.91813C8.20573 3.55498 8.50013 3.26058 8.86328 3.26058C9.22644 3.26058 9.52083 3.55498 9.52083 3.91813C9.52083 4.28129 9.22644 4.57568 8.86328 4.57568Z" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0.972689 9.1786C0.972656 9.13613 0.972656 9.09234 0.972656 9.04717V2.73467C0.972656 1.99814 0.972656 1.6296 1.11599 1.34828C1.24208 1.10083 1.44312 0.899792 1.69057 0.773709C1.97189 0.630371 2.34042 0.630371 3.07695 0.630371H10.7046C11.4411 0.630371 11.8092 0.630371 12.0905 0.773709C12.3379 0.899792 12.5393 1.10083 12.6654 1.34828C12.8086 1.62933 12.8086 1.99742 12.8086 2.73251V9.04907C12.8086 9.36799 12.8086 9.61773 12.7969 9.82124M0.972689 9.1786C0.973196 9.82848 0.981448 10.1687 1.11599 10.4328C1.24208 10.6802 1.44312 10.8819 1.69057 11.008C1.97161 11.1512 2.3397 11.1512 3.07479 11.1512H10.7068C11.4419 11.1512 11.8094 11.1512 12.0905 11.008C12.3379 10.8819 12.5393 10.6802 12.6654 10.4328C12.7465 10.2736 12.7816 10.0868 12.7969 9.82124M0.972689 9.1786L4.10785 5.52091L4.10878 5.5199C4.38684 5.19549 4.52611 5.03301 4.69129 4.97445C4.83639 4.92301 4.99481 4.92421 5.13919 4.97766C5.30371 5.03858 5.44076 5.20291 5.71487 5.53183L7.4713 7.63955C7.72503 7.94403 7.85263 8.09715 8.00756 8.15861C8.14422 8.21281 8.29493 8.21892 8.43594 8.17731C8.59645 8.12994 8.73774 7.98867 9.02029 7.70612L9.34713 7.37927C9.63481 7.09159 9.77865 6.94786 9.94146 6.90087C10.0844 6.85961 10.2373 6.86847 10.3749 6.92528C10.5315 6.98995 10.6585 7.14827 10.9127 7.46596L12.7969 9.82124M12.7969 9.82124L12.8086 9.83584M8.86328 4.57568C8.50013 4.57568 8.20573 4.28129 8.20573 3.91813C8.20573 3.55498 8.50013 3.26058 8.86328 3.26058C9.22644 3.26058 9.52083 3.55498 9.52083 3.91813C9.52083 4.28129 9.22644 4.57568 8.86328 4.57568Z" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <div class="logout">
+        <a href="#">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="15.7812" height="15.7812" fill="#24585F"/>
+            <path d="M7.89079 9.86344L9.86344 7.89079M9.86344 7.89079L7.89079 5.91813M9.86344 7.89079H2.63037M5.91813 4.76649V4.73467C5.91813 3.99814 5.91813 3.6296 6.06147 3.34828C6.18755 3.10083 6.38859 2.89979 6.63604 2.77371C6.91736 2.63037 7.2859 2.63037 8.02243 2.63037H11.0472C11.7837 2.63037 12.1514 2.63037 12.4328 2.77371C12.6802 2.89979 12.8819 3.10083 13.008 3.34828C13.1512 3.62933 13.1512 3.99742 13.1512 4.73251V11.0494C13.1512 11.7845 13.1512 12.152 13.008 12.4331C12.8819 12.6805 12.6802 12.8819 12.4328 13.008C12.1517 13.1512 11.7842 13.1512 11.0491 13.1512H8.02027C7.28518 13.1512 6.91709 13.1512 6.63604 13.008C6.38859 12.8819 6.18755 12.6803 6.06147 12.4329C5.91813 12.1516 5.91813 11.7836 5.91813 11.047V11.0142" stroke="white" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>   
+        </a>
+       
+      </div>
+    </div>
+  </div>
+  <div class="content-main">
+    <div class="d-flex justify-content-between">
+      <div class="input-group">
+        <input class="form-control searchbar" type="search" value="Search by name, Department, Ticket no. ......" id="example-search-input">
+      </div>
+      <button class="btn button-new-ticket"  data-bs-toggle="modal" data-bs-target="#createTicket"> <img src="images/edit.svg" alt="new ticket">New Ticket</button>
+    </div>
+    <div class="ticket-tab">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="alltickets-tab" data-bs-toggle="tab" href="#alltickets" role="tab" aria-controls="alltickets" aria-selected="true">
+            <img src="images/allticket.svg" alt="all tickets">
+            All Tickets
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="complaints-tab" data-bs-toggle="tab" href="#complaints" role="tab" aria-controls="complaints" aria-selected="false">
+            <img src="images/complaints.svg" alt="complaints">
+            Complaints
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="help-tab" data-bs-toggle="tab" href="#help" role="tab" aria-controls="help" aria-selected="false">
+            <img src="images/help.svg" alt="help">
+            Help
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="support-tab" data-bs-toggle="tab" href="#support" role="tab" aria-controls="support" aria-selected="false">
+            <img src="images/support.svg" alt="help">
+            Support
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="alltickets" role="tabpanel" aria-labelledby="alltickets-tab">
+          <div class="d-lg-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="ticket-stats">Open <span class="badge active">11</span></div>
+              <div class="ticket-stats">On Hold <span class="badge">00</span></div>
+              <div class="ticket-stats">On Process <span class="badge">00</span></div>
+              <div class="ticket-stats">On Going <span class="badge">03</span></div>
+              <div class="ticket-stats">Closed <span class="badge">09</span></div>
+              <div class="ticket-stats"><a href="tickets-listview-full.html">All <span class="badge">23</span></a></div>
+            </div>
+            <div class="d-flex arrow-up">
+              <div class="dropdown">
+                <button class="dropdown-outline dropdown-toggle arrow-down" type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 All Priority
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                  <a class="dropdown-item" href="tickets-listview.html">List view</a>
+                  <a class="dropdown-item" href="tickets-classicview.html">Classic view</a>
+                  <a class="dropdown-item" href="tickets-listview-full.html">List view full</a>
+                </div>
+              </div>
+              <div class="dropdown">
+                <button class="dropdown-filled dropdown-toggle arrow-down-white" type="button" id="dropdownMenuButton5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  LIST VIEW
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
+                  <a class="dropdown-item" href="tickets-listview.html">List view</a>
+                  <a class="dropdown-item" href="tickets-classicview.html">Classic view</a>
+                  <a class="dropdown-item" href="tickets-listview-full.html">List view full</a>
+                </div>
+              </div>
+              <button class="btn filter-btn"><img src="images/filter.svg" alt="filter">FILTER</button>
+              <button class="btn filter-btn-icon"  data-bs-toggle="modal" data-bs-target="#dateSet"><img src="images/filter-icon.svg" alt="filter"></button>
+            </div>
+          </div>
+          <div class="ticket-listing-wrapper">
+            <div class="ticket-listing expanded ticketsResolution">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="white-circle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.24836 2.79934C6.04865 2.30005 5.56507 1.97266 5.02732 1.97266H3.21854C2.53046 1.97266 1.97266 2.53032 1.97266 3.21841C1.97266 9.06713 6.71412 13.8086 12.5628 13.8086C13.2509 13.8086 13.8086 13.2507 13.8086 12.5627L13.8089 10.7536C13.8089 10.2158 13.4816 9.73233 12.9823 9.53262L11.2487 8.83943C10.8002 8.66003 10.2896 8.74077 9.91848 9.05001L9.47106 9.42317C8.94854 9.8586 8.17971 9.82397 7.69875 9.34302L6.4389 8.08201C5.95794 7.60105 5.9224 6.83285 6.35784 6.31032L6.73092 5.86293C7.04016 5.49185 7.12161 4.98106 6.94221 4.53257L6.24836 2.79934Z" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                      
+                  </div>
+                  <h5><span>#122</span>Location problem</h5>
+                </div>
+                <div class="badge primary">Ongoing</div>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="customer d-flex align-items-center">
+                  <img src="images/customer1.svg" alt="customer">
+                  <h4>John Snow</h4>
+                </div>
+                <div class="date">
+                  Posted at 12:45 AM
+                </div>
+              </div>
+            </div>
+            <div class="ticket-listing expanded ticketsResolution">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="white-circle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.24836 2.79934C6.04865 2.30005 5.56507 1.97266 5.02732 1.97266H3.21854C2.53046 1.97266 1.97266 2.53032 1.97266 3.21841C1.97266 9.06713 6.71412 13.8086 12.5628 13.8086C13.2509 13.8086 13.8086 13.2507 13.8086 12.5627L13.8089 10.7536C13.8089 10.2158 13.4816 9.73233 12.9823 9.53262L11.2487 8.83943C10.8002 8.66003 10.2896 8.74077 9.91848 9.05001L9.47106 9.42317C8.94854 9.8586 8.17971 9.82397 7.69875 9.34302L6.4389 8.08201C5.95794 7.60105 5.9224 6.83285 6.35784 6.31032L6.73092 5.86293C7.04016 5.49185 7.12161 4.98106 6.94221 4.53257L6.24836 2.79934Z" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                      
+                  </div>
+                  <h5><span>#122</span>GPS Problem</h5>
+                </div>
+                <div class="badge success">Solved</div>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="customer d-flex align-items-center">
+                  <img src="images/customer2.svg" alt="customer">
+                  <h4>Fatima Al Jaber</h4>
+                </div>
+                <div class="date">
+                  Posted at 12:45 AM
+                </div>
+              </div>
+            </div>
+            <div class="ticket-listing expanded ticketsResolution">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="white-circle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.24836 2.79934C6.04865 2.30005 5.56507 1.97266 5.02732 1.97266H3.21854C2.53046 1.97266 1.97266 2.53032 1.97266 3.21841C1.97266 9.06713 6.71412 13.8086 12.5628 13.8086C13.2509 13.8086 13.8086 13.2507 13.8086 12.5627L13.8089 10.7536C13.8089 10.2158 13.4816 9.73233 12.9823 9.53262L11.2487 8.83943C10.8002 8.66003 10.2896 8.74077 9.91848 9.05001L9.47106 9.42317C8.94854 9.8586 8.17971 9.82397 7.69875 9.34302L6.4389 8.08201C5.95794 7.60105 5.9224 6.83285 6.35784 6.31032L6.73092 5.86293C7.04016 5.49185 7.12161 4.98106 6.94221 4.53257L6.24836 2.79934Z" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                      
+                  </div>
+                  <h5><span>#122</span>Not working</h5>
+                </div>
+                <div class="badge success">Solved</div>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="customer d-flex align-items-center">
+                  <img src="images/customer2.svg" alt="customer">
+                  <h4>Salem Musa</h4>
+                </div>
+                <div class="date">
+                  Posted at 12:45 AM
+                </div>
+              </div>
+            </div>
+            <div class="ticket-listing expanded ticketsResolution">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <div class="white-circle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.24836 2.79934C6.04865 2.30005 5.56507 1.97266 5.02732 1.97266H3.21854C2.53046 1.97266 1.97266 2.53032 1.97266 3.21841C1.97266 9.06713 6.71412 13.8086 12.5628 13.8086C13.2509 13.8086 13.8086 13.2507 13.8086 12.5627L13.8089 10.7536C13.8089 10.2158 13.4816 9.73233 12.9823 9.53262L11.2487 8.83943C10.8002 8.66003 10.2896 8.74077 9.91848 9.05001L9.47106 9.42317C8.94854 9.8586 8.17971 9.82397 7.69875 9.34302L6.4389 8.08201C5.95794 7.60105 5.9224 6.83285 6.35784 6.31032L6.73092 5.86293C7.04016 5.49185 7.12161 4.98106 6.94221 4.53257L6.24836 2.79934Z" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                      
+                  </div>
+                  <h5><span>#122</span>Error 102</h5>
+                </div>
+                <div class="badge primary">Solved</div>
+              </div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="customer d-flex align-items-center">
+                  <img src="images/customer2.svg" alt="customer">
+                  <h4>Salem Musa</h4>
+                </div>
+                <div class="date">
+                  Posted at 12:45 AM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="complaints" role="tabpanel" aria-labelledby="complaints-tab">
+         2
+        </div>
+        <div class="tab-pane fade" id="help" role="tabpanel" aria-labelledby="help-tab">
+          3
+        </div>
+        <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
+          4
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal create ticket -->
+  <div class="modal fade list-view modal-xl" id="createTicket" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="text-center">
+         <!-- Button trigger modal reopen ticket -->
+         <button class="btn reopen-ticket" data-bs-toggle="modal" data-bs-target="#reopenPreviousTicket">Reopen Previous Ticket <img src="images/arrow-right.svg" alt="reopen ticket"></button>
+         <button type="button" class="btn btn-reopen"></button>
+          <h5 class="modal-title">Create Quick Ticket</h5>
+          <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.9008 14.9007L8.0862 8.08613M8.0862 8.08613L1.27155 1.27148M8.0862 8.08613L14.9008 1.27148M8.0862 8.08613L1.27155 14.9008" stroke="#5C5C5C" stroke-width="1.15355" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                          
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class=" text-center">
+           Choose the date to prioritize this ticket as it transitions from 'Open' to 'On Process
+          </div>
+          <div>
+           <form class="modal-form">
+             <div class="row">
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Email</label>
+                   <input type="email" class="form-control" placeholder="john22002@gmail.com">
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label  class="form-label">Ticket Type</label>
+                   <select class="form-select" aria-label="Default select example">
+                     <option selected>Support</option>
+                     <option value="1">One</option>
+                     <option value="2">Two</option>
+                     <option value="3">Three</option>
+                   </select>
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Priority Status</label>
+                   <select class="form-select" aria-label="Default select example">
+                     <option selected>Medium</option>
+                     <option value="1">One</option>
+                     <option value="2">Two</option>
+                     <option value="3">Three</option>
+                   </select>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Subject</label>
+                   <input type="text" class="form-control" placeholder="Laptop requirement">
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Mobile Number</label>
+                   <input type="text" class="form-control" placeholder="+971 1234567890">
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Department</label>
+                   <select class="form-select" aria-label="Default select example">
+                     <option selected>Select Correspondning Department</option>
+                     <option value="1">One</option>
+                     <option value="2">Two</option>
+                     <option value="3">Three</option>
+                   </select>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-lg-12">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Ticket Body</label>
+                   <textarea class="form-control textare-height">
+Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                   </textarea>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Contact Name</label>
+                   <input type="text" class="form-control" placeholder="john">
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Channel</label>
+                   <select class="form-select" aria-label="Default select example">
+                     <option selected>Choose Type</option>
+                     <option value="1">One</option>
+                     <option value="2">Two</option>
+                     <option value="3">Three</option>
+                   </select>
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="form-margin-bottom">
+                   <label class="form-label">Attachment</label>
+                   <input type="text" class="form-control attachment" placeholder="Choose file">
+                 </div>
+               </div>
+             </div>
+           </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#saveCustomerInfo">Create</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal create ticket Ends -->
+  <!-- Modal reopen ticket -->
+  <div class="modal fade list-view modal-xl" id="reopenPreviousTicket" tabindex="-1" role="dialog" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+     <div class="modal-content">
+       <div class="text-center">
+        <!-- Button trigger modal reopen ticket -->
+        <button class="btn reopen-ticket"  data-bs-toggle="modal" data-bs-target="#createTicket"><img src="images/arrow-left.svg" alt="reopen ticket" class="ms-0 me-3"> Create new Ticket </button>
+         <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
+           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M14.9008 14.9007L8.0862 8.08613M8.0862 8.08613L1.27155 1.27148M8.0862 8.08613L14.9008 1.27148M8.0862 8.08613L1.27155 14.9008" stroke="#5C5C5C" stroke-width="1.15355" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>                          
+         </button>
+       </div>
+       <div class="modal-body">
+         <div class="ticket-listing-wrapper mt-5">
+           <div class="ticket-listing ticketsResolution">
+             <div class="d-flex justify-content-between align-items-center">
+               <div class="d-flex align-items-center">
+                 <div class="white-circle">
+                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M2.63005 11.1785H2.30127C1.75654 11.1785 1.31494 11.6201 1.31494 12.1648C1.31494 12.7095 1.75654 13.1511 2.30127 13.1511H13.4797C14.0244 13.1511 14.466 12.7095 14.466 12.1648C14.466 11.6201 14.0244 11.1785 13.4797 11.1785H13.1509M2.63005 11.1785H13.1509M2.63005 11.1785V5.39214C2.63005 4.65561 2.63005 4.28707 2.77338 4.00576C2.89947 3.7583 3.10051 3.55726 3.34796 3.43118C3.62928 3.28784 3.99781 3.28784 4.73434 3.28784H11.0468C11.7834 3.28784 12.1511 3.28784 12.4324 3.43118C12.6799 3.55726 12.8816 3.7583 13.0077 4.00576C13.1509 4.2868 13.1509 4.65489 13.1509 5.38998V11.1785" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                   </svg>
+                 </div>
+                 <h5><span>#122</span>Laptop Requirement</h5>
+               </div>
+               <div class="dropdown">
+                 <button class="dropdown-variant dropdown-variant-primary dropdown-toggle arrow-down" type="button" id="dropdownMenuButton10" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Open
+                 </button>
+                 <div class="dropdown-menu dropdown-menu-variant dropdown-menu-variant-primary" aria-labelledby="dropdownMenuButton10">
+                   <a class="dropdown-item" href="#">Closed</a>
+                   <a class="dropdown-item" href="#">On process</a>
+                   <a class="dropdown-item" href="#">On hold</a>
+                   <a class="dropdown-item" href="#">On Going</a>
+                 </div>
+               </div>
+             </div>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div>
+           <div class="ticket-listing ticketsResolution">
+             <div class="d-flex justify-content-between align-items-center">
+               <div class="d-flex align-items-center">
+                 <div class="white-circle">
+                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M3.2876 6.52479C3.2876 9.71512 6.07856 12.3534 7.31391 13.3649C7.49071 13.5096 7.58017 13.5829 7.71207 13.62C7.81478 13.6489 7.96595 13.6489 8.06866 13.62C8.20081 13.5828 8.28964 13.5103 8.4671 13.365C9.70246 12.3535 12.4933 9.71541 12.4933 6.52508C12.4933 5.31774 12.0084 4.15971 11.1452 3.30599C10.2819 2.45227 9.11127 1.97266 7.89052 1.97266C6.66976 1.97266 5.49895 2.45234 4.63575 3.30606C3.77254 4.15978 3.2876 5.31745 3.2876 6.52479Z" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                     <path d="M6.57536 5.91797C6.57536 6.64428 7.16415 7.23307 7.89046 7.23307C8.61677 7.23307 9.20557 6.64428 9.20557 5.91797C9.20557 5.19166 8.61677 4.60286 7.89046 4.60286C7.16415 4.60286 6.57536 5.19166 6.57536 5.91797Z" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                   </svg>                      
+                 </div>
+                 <h5><span>#122</span>GPS Issue</h5>
+               </div>
+               <div class="dropdown">
+                 <button class="dropdown-variant dropdown-variant-warning dropdown-toggle arrow-down" type="button" id="dropdownMenuButton11" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Ongoing
+                 </button>
+                 <div class="dropdown-menu dropdown-menu-variant dropdown-menu-variant-warning" aria-labelledby="dropdownMenuButton11">
+                   <a class="dropdown-item" href="#">Closed</a>
+                   <a class="dropdown-item" href="#">On process</a>
+                   <a class="dropdown-item" href="#">On hold</a>
+                   <a class="dropdown-item" href="#">On Going</a>
+                 </div>
+               </div>
+             </div>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div>
+           <div class="ticket-listing ticketsResolution">
+             <div class="d-flex justify-content-between align-items-center">
+               <div class="d-flex align-items-center">
+                 <div class="white-circle">
+                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M2.63005 11.1785H2.30127C1.75654 11.1785 1.31494 11.6201 1.31494 12.1648C1.31494 12.7095 1.75654 13.1511 2.30127 13.1511H13.4797C14.0244 13.1511 14.466 12.7095 14.466 12.1648C14.466 11.6201 14.0244 11.1785 13.4797 11.1785H13.1509M2.63005 11.1785H13.1509M2.63005 11.1785V5.39214C2.63005 4.65561 2.63005 4.28707 2.77338 4.00576C2.89947 3.7583 3.10051 3.55726 3.34796 3.43118C3.62928 3.28784 3.99781 3.28784 4.73434 3.28784H11.0468C11.7834 3.28784 12.1511 3.28784 12.4324 3.43118C12.6799 3.55726 12.8816 3.7583 13.0077 4.00576C13.1509 4.2868 13.1509 4.65489 13.1509 5.38998V11.1785" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                   </svg>
+                 </div>
+                 <h5><span>#122</span>Device problem</h5>
+               </div>
+               <div class="dropdown">
+                 <button class="dropdown-variant dropdown-variant-primary dropdown-toggle arrow-down" type="button" id="dropdownMenuButton12" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Open
+                 </button>
+                 <div class="dropdown-menu dropdown-menu-variant dropdown-menu-variant-primary" aria-labelledby="dropdownMenuButton12">
+                   <a class="dropdown-item" href="#">Closed</a>
+                   <a class="dropdown-item" href="#">On process</a>
+                   <a class="dropdown-item" href="#">On hold</a>
+                   <a class="dropdown-item" href="#">On Going</a>
+                 </div>
+               </div>
+             </div>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ 
+           </div>
+           <div class="ticket-listing ticketsResolution">
+             <div class="d-flex justify-content-between align-items-center">
+               <div class="d-flex align-items-center">
+                 <div class="white-circle">
+                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M9.86328 3.94531V13.8086M9.86328 3.94531L13.8086 1.97266V11.8359L9.86328 13.8086M9.86328 3.94531L5.91797 1.97266M9.86328 13.8086L5.91797 11.8359M5.91797 11.8359L1.97266 13.8086V3.94531L5.91797 1.97266M5.91797 11.8359V1.97266" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                   </svg>
+                 </div>
+                 <h5><span>#122</span>Location problem</h5>
+               </div>
+               <div class="dropdown">
+                 <button class="dropdown-variant dropdown-variant-success dropdown-toggle arrow-down" type="button" id="dropdownMenuButton13" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   Success
+                 </button>
+                 <div class="dropdown-menu dropdown-menu-variant dropdown-menu-variant-success" aria-labelledby="dropdownMenuButton13">
+                   <a class="dropdown-item" href="#">Closed</a>
+                   <a class="dropdown-item" href="#">On process</a>
+                   <a class="dropdown-item" href="#">On hold</a>
+                   <a class="dropdown-item" href="#">On Going</a>
+                 </div>
+               </div>
+             </div>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ 
+           </div>
+           <div class="ticket-listing ticketsResolution">
+             <div class="d-flex justify-content-between align-items-center">
+               <div class="d-flex align-items-center">
+                 <div class="white-circle">
+                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M9.86328 3.94531V13.8086M9.86328 3.94531L13.8086 1.97266V11.8359L9.86328 13.8086M9.86328 3.94531L5.91797 1.97266M9.86328 13.8086L5.91797 11.8359M5.91797 11.8359L1.97266 13.8086V3.94531L5.91797 1.97266M5.91797 11.8359V1.97266" stroke="#5C5C5C" stroke-width="1.00177" stroke-linecap="round" stroke-linejoin="round"/>
+                   </svg>
+                 </div>
+                 <h5><span>#122</span>Location problem</h5>
+               </div>
+               <div class="dropdown">
+                 <button class="dropdown-variant dropdown-variant-danger dropdown-toggle arrow-down" type="button" id="dropdownMenuButton14" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   On hold
+                 </button>
+                 <div class="dropdown-menu dropdown-menu-variant dropdown-menu-variant-danger" aria-labelledby="dropdownMenuButton14">
+                   <a class="dropdown-item" href="#">Closed</a>
+                   <a class="dropdown-item" href="#">On process</a>
+                   <a class="dropdown-item" href="#">On hold</a>
+                   <a class="dropdown-item" href="#">On Going</a>
+                 </div>
+               </div>
+             </div>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+ 
+           </div>
+         </div>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-success">Create</button>
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div>
+ <!-- Modal reopen Ends -->
+  <!-- Modal Save customer info starts -->
+  <div class="modal fade list-view modal-md" id="saveCustomerInfo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="text-center">
+         <button type="button" class="btn btn-reopen"></button>
+          <h5 class="modal-title">Customer info</h5>
+          <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.9008 14.9007L8.0862 8.08613M8.0862 8.08613L1.27155 1.27148M8.0862 8.08613L14.9008 1.27148M8.0862 8.08613L1.27155 14.9008" stroke="#5C5C5C" stroke-width="1.15355" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                          
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            Do you want to save contact info ?
+           <div class="my-4">
+            <img src="images/customer-large.svg" alt="">
+           </div>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Save</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal Save customer info Ends -->
+   <!-- Modal Datepicker -->
+   <div class="modal fade list-view modal-lg" id="dateSet" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="text-center">
+          <h5 class="modal-title">Set the Date</h5>
+          <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.9008 14.9007L8.0862 8.08613M8.0862 8.08613L1.27155 1.27148M8.0862 8.08613L14.9008 1.27148M8.0862 8.08613L1.27155 14.9008" stroke="#5C5C5C" stroke-width="1.15355" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                          
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          Write and address new queries and issues
+          <div class="input-group">
+            <input type="text" class="form-control text-field" id="datepicker">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success">Update</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Datepicker Ends -->
+  <script
+  src="js/jquery-3.7.1.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/jquery.barrating.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
+
