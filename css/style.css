@@ -297,7 +297,7 @@ body {
 }
 
 .content-main {
-	padding: 0 20px;
+	padding: 0 26px 0 26px;
 	margin-left: 91px;
 	margin-top: 102px;
 }
@@ -345,7 +345,9 @@ body {
 	margin-top: 20px;
 	border-top: 1px solid #000;
 }
-
+.ticket-tab .nav.nav-tabs {
+	border: none;
+}
 .ticket-tab .nav.nav-tabs .nav-item .nav-link {
 	padding: 22px 19px;
 	color: #84818A;
@@ -1004,7 +1006,7 @@ color: #ccc;
 
 .slide-btn.slide-btn-right {
 	background: #3A4360;
-	left: -27px;
+	left: -28px;
 }
 
 .slide-btn.slide-btn-left svg {
@@ -1012,15 +1014,15 @@ color: #ccc;
 }
 
 .tickets-right {
-	width: 63.5%;
+	width: 65%;
 	float: right;
 	padding: 20px;
 	background: #F0F3F3;
 	border-radius: 16px;
 	height: 100%;
 	position: relative;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 .ticket-tab.tab-icon {
@@ -2711,7 +2713,7 @@ color: #ccc;
     margin-left: 10px;
   }
 	.slide-btn.slide-btn-right {
-		left: -66px;
+		left: -48px;
 	}
   .sidebar {
     margin-left: 15px;
@@ -2761,15 +2763,19 @@ color: #ccc;
 		height: 100%;
 	}
 	.tickets-right-body {
-		height: 100%;
+		height: 715px
 	}
 	.tickets-left {
 		width: 30.5%;
+		height: 780px;
 	}
 	.tickets-right-body .ticket-tab .nav.nav-tabs .nav-item {
 		margin-right: 14px;
 	}
 	.tickets-right-body .ticket-tab .nav.nav-tabs .nav-item .nav-link {
 		font-size: 10px;
+	}
+	.slide-btn.slide-btn-right {
+    left: -36px;
 	}
 }

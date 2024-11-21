@@ -19,7 +19,7 @@ $("#slide-btn-right").click(function() {
   }, 500);
   // $('#tickets-right').css('width', '97%');
   $('#tickets-right').animate({
-    "width": '96.5%'
+    "width": '98%'
   }, 500);
   $("#slide-btn-left").show();
   $(this).hide()
