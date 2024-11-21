@@ -15,7 +15,7 @@ $("#slide-btn-right").click(function() {
       "margin-left": $width1
   }, 500);
   $('#slide-btn-left').animate({
-    "left": 91
+    "left": '91'
   }, 500);
   // $('#tickets-right').css('width', '97%');
   $('#tickets-right').animate({
@@ -35,7 +35,7 @@ $("#slide-btn-left").click(function() {
     "left": 91
   }, 500);
   $('#tickets-right').animate({
-    "width": '63.5%'
+    "width": '64.5%'
   }, 500);
   $("#slide-btn-right").show();
   $(this).hide()
