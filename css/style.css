@@ -2311,6 +2311,13 @@ a.date-picker-trigger span {
 .dropdown-display-label .dropdown-selected .del {
 	display: none;
 }
+.dropdown-group, .dropdown-option {
+	font-size: 12px;
+	color: #84818A;
+}
+.dropdown-group {
+	font-weight: 600;
+}
 
 @media only screen and (min-width: 200px) and (max-width: 767px) {
 	.navbar-brand {
@@ -2797,7 +2804,15 @@ a.date-picker-trigger span {
 	.sidebar {
 		margin-left: 15px;
 		width: 76px;
+		height: 80%;
+		overflow: auto;
 	}
+	.sidebar .logout {
+		margin-top: 16px;
+	}
+	.sidebar .nav-pills .nav-item .nav-link {
+    padding: 22px 25px;
+}
 
 	.slide-btn.slide-btn-left {
 		left: 80px;
