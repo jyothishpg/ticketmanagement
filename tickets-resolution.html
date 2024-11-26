@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/bootstrap-datepicker.min.css">
   <link rel="stylesheet" href="css/css-stars.css">
   <link rel="stylesheet" href="css/bar-rating.css">
+  <link rel="stylesheet" href="css/jquery.dropdown.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
@@ -672,8 +673,11 @@ Start typing...
                   <form class="form-inline my-2 my-lg-0">
                     <div class="d-flex align-items-center">
                       <div class="search-area-label">Search by Tags</div>
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-go my-2 my-sm-0 d-flex" type="submit">
+                      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+                      <div class="dropdown-mul-1">
+                        <select style="display:none" name="" id="" multiple placeholder="Select"> </select>
+                      </div>
+                      <button class="btn btn-go my-2 my-sm-0 d-flex ms-2" type="submit">
                         Go
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
@@ -1883,6 +1887,8 @@ Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero e
   <script src="js/bootstrap-datepicker.min.js"></script>
   <script src="js/jquery-ui.js"></script>
   <script src="js/jquery.barrating.min.js"></script>
+  <script src="js/mock.js"></script>
+  <script src="js/jquery.dropdown.js"></script>
   <script src="js/script.js"></script>
 
 </body>
